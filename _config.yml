@@ -1,0 +1,26 @@
+# Jekyll configuration for Bale Calculator
+title: "Bale Calculator (XAF)"
+description: "Free interactive bale calculator for used clothing / textile traders in Central & West Africa. Instantly estimate pieces per bale, cost per piece, total revenue, profit, margin and return on cost in CFA Franc (XAF)."
+author: "Joy Sameza"
+url: "https://funSamy.github.io"
+baseurl: "/bale-calculator"
+
+# Theme selection - using minimal theme for clean, professional look
+theme: jekyll-theme-minimal
+
+# SEO and social media
+twitter:
+  username: funSamy
+
+# Jekyll settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - pages.json
