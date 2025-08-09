@@ -26,7 +26,7 @@ Visit the calculator at: [https://Joy-sameza.github.io/bale-calculator/](https:/
 
 ## Author
 
-Created by [Joy Sameza](https://github.com/Joy-sameza)
+Created by [funSamy](https://github.com/funSamy)
 
 ## License
 
