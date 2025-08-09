@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Bale Calculator (XAF) – Profit, Margin & Return Calculator for Used
+      Clothing Bales
+    </title>
+    <meta
+      name="description"
+      content="Free interactive bale calculator for used clothing / textile traders in Central & West Africa. Instantly estimate pieces per bale, cost per piece, total revenue, profit, margin and return on cost in CFA Franc (XAF)."
+    />
+    <meta
+      name="keywords"
+      content="bale calculator, used clothing calculator, profit calculator XAF, cost per piece, margin calculator, return on cost, second hand clothes business, CFA Franc, buy rate shipping cost, bale profit"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <!-- Canonical URL (will be replaced dynamically if hosted on a different origin) -->
+    <link
+      id="canonicalLink"
+      rel="canonical"
+      href="https://Joy-sameza.github.io/bale-calculator/"
+    />
+    <meta name="author" content="Joy Sameza" />
+    <meta name="theme-color" content="#0b0c10" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Bale Calculator (XAF) – Profit & Margin Tool"
+    />
+    <meta
+      property="og:description"
+      content="Instantly compute cost, revenue, profit, margin and return on cost for clothing bales. Optimize your second-hand clothing business decisions."
+    />
+    <meta
+      property="og:url"
+      content="https://Joy-sameza.github.io/bale-calculator/"
+    />
+    <meta property="og:site_name" content="Bale Calculator" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:image"
+      content="https://Joy-sameza.github.io/bale-calculator/og-bale-calculator.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Bale Calculator (XAF) – Profit & Margin Tool"
+    />
+    <meta
+      name="twitter:description"
+      content="Free XAF bale profit calculator. Estimate revenue & margin for used clothing bales in seconds."
+    />
+    <meta
+      name="twitter:image"
+      content="https://Joy-sameza.github.io/bale-calculator/og-bale-calculator.png"
+    />
+    <meta name="twitter:site" content="@joysameza" />
+    <!-- Language alternates -->
+    <link
+      rel="alternate"
+      href="https://Joy-sameza.github.io/bale-calculator/"
+      hreflang="en"
+    />
+    <link
+      rel="alternate"
+      href="https://Joy-sameza.github.io/bale-calculator/"
+      hreflang="x-default"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* --- SEO & content utility classes --- */
+      .visually-hidden {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .prose {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: #c7d6e2;
+        letter-spacing: 0.2px;
+      }
+      .prose p {
+        margin: 0 0 0.85em;
+      }
+      .prose p:last-child {
+        margin-bottom: 0;
+      }
+      .prose h2,
+      .prose h3 {
+        line-height: 1.25;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+      }
+      .prose h2 {
+        font-size: 1.05rem;
+        margin: 1.6em 0 0.6em;
+      }
+      .prose h3 {
+        font-size: 0.95rem;
+        margin: 1.2em 0 0.4em;
+      }
+      .prose strong {
+        color: #fff;
+        font-weight: 600;
+      }
+      .prose code {
+        background: #121b23;
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-size: 0.78rem;
+      }
+      .info-grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        margin: 1.1em 0 1.4em;
+      }
+      .info-box {
+        background: #10161c;
+        border: 1px solid #1b232c;
+        border-radius: 10px;
+        padding: 12px 14px 13px;
+      }
+      .info-box h3 {
+        margin: 0.1em 0 0.45em;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.9px;
+        color: #8aa0b4;
+      }
+      .info-box p {
+        margin: 0;
+        font-size: 0.7rem;
+        line-height: 1.35;
+      }
+      @media (max-width: 640px) {
+        .prose {
+          font-size: 0.82rem;
+        }
+      }
+      :root {
+        --bg: #0b0c10;
+        --card: #12151a;
+        --muted: #8aa0b4;
+        --text: #e7eef5;
+        --accent: #4fd1c5;
+        --danger: #ff6b6b;
+        --good: #9be15d;
+        --border: #1f2630;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+          sans-serif;
+        background: radial-gradient(
+            1200px 800px at 80% -20%,
+            #15202b 0%,
+            #0b0c10 40%
+          ),
+          #0b0c10;
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap {
+        max-width: 1040px;
+        margin: auto;
+        padding: 28px 24px 48px;
+      }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 20px;
+      }
+      header h1 {
+        font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+        margin: 0;
+        color: #f3f7fb;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+      .grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 880px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .card {
+        position: relative;
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.03),
+            rgba(0, 0, 0, 0.08)
+          ),
+          var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px 18px 22px;
+        box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.4),
+          0 10px 32px -4px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        backdrop-filter: blur(4px);
+        transition: transform 0.35s cubic-bezier(0.4, 0.2, 0.2, 1),
+          border-color 0.3s;
+      }
+      .card:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(
+          650px 320px at 90% -10%,
+          rgba(255, 255, 255, 0.08),
+          transparent 70%
+        );
+        opacity: 0.55;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: #2a343f;
+      }
+      .card h2 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin: 0 0 14px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #1a2028;
+        letter-spacing: 0.4px;
+      }
+      .row {
+        display: grid;
+        gap: 14px 14px;
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 640px) {
+        .row {
+          grid-template-columns: 1fr;
+        }
+        .card {
+          padding: 16px 14px 18px;
+        }
+      }
+      label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.9px;
+        font-weight: 600;
+        color: var(--muted);
+        margin: 0 0 6px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 11px 12px 10px;
+        font-size: 0.9rem;
+        border-radius: 9px;
+        border: 1px solid #1c222b;
+        background: #0f1318;
+        color: var(--text);
+        outline: none;
+        transition: border 0.15s ease, box-shadow 0.15s ease,
+          background-color 0.35s ease;
+        font-family: inherit;
+      }
+      input[type="number"]:focus {
+        border-color: var(--accent);
+        background-color: #12181f;
+        box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.18);
+      }
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type="number"] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+      .inline-hint,
+      .hint {
+        font-size: 0.66rem;
+        line-height: 1.15;
+        color: var(--muted);
+        margin-top: 5px;
+        letter-spacing: 0.4px;
+      }
+      .inputs-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      button {
+        appearance: none;
+        border: 1px solid #1e262f;
+        background: #11171d;
+        color: var(--text);
+        font-family: inherit;
+        font-size: 0.75rem;
+        letter-spacing: 0.6px;
+        font-weight: 600;
+        padding: 10px 14px 9px;
+        border-radius: 9px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-transform: uppercase;
+        transition: background 0.3s, border-color 0.3s, box-shadow 0.3s,
+          transform 0.25s;
+      }
+      button:hover {
+        background: #182028;
+        border-color: #2c3a46;
+        box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.14);
+      }
+      button:active {
+        transform: translateY(1px);
+      }
+      button.primary {
+        background: linear-gradient(135deg, #25b7aa, var(--accent));
+        color: #042725;
+        border-color: #35c5ba;
+        box-shadow: 0 4px 18px -4px rgba(79, 209, 197, 0.45);
+      }
+      button.primary:hover {
+        background: linear-gradient(135deg, #20a599, var(--accent));
+      }
+      #copied {
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+      #copied.show {
+        opacity: 1;
+      }
+      .kpi-grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      }
+      .kpi {
+        background: #0e1319;
+        border: 1px solid #1c232c;
+        border-radius: 11px;
+        padding: 12px 12px 13px;
+        position: relative;
+        overflow: hidden;
+        transition: background-color 0.35s, transform 0.35s, border-color 0.35s;
+      }
+      .kpi:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          400px 180px at 110% -10%,
+          rgba(255, 255, 255, 0.05),
+          transparent 70%
+        );
+        opacity: 0.5;
+      }
+      .kpi:hover {
+        background: #182028;
+        transform: translateY(-2px);
+        border-color: #26323d;
+      }
+      .kpi .label {
+        font-size: 0.63rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--muted);
+      }
+      .kpi .value {
+        font-size: 1.02rem;
+        font-weight: 600;
+        margin-top: 6px;
+        color: #eef6ff;
+      }
+      .kpi.good .value {
+        color: var(--good);
+      }
+      .kpi.bad .value {
+        color: var(--danger);
+      }
+      .sub-foot {
+        margin-top: 10px;
+        font-size: 0.62rem;
+        letter-spacing: 0.5px;
+        color: #5f7284;
+        text-transform: uppercase;
+      }
+      .footer {
+        margin-top: 26px;
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .divider {
+        height: 1px;
+        background: #1b232c;
+        margin: 6px 0 2px;
+        border-radius: 1px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          scroll-behavior: smooth;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Bale Calculator (XAF)",
+        "url": "https://Joy-sameza.github.io/bale-calculator/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "description": "Interactive CFA Franc (XAF) bale profit & margin calculator for second-hand clothing traders. Computes pieces, revenue, profit, margin, ROC, cost and profit per piece.",
+        "inLanguage": ["en"],
+        "featureList": [
+          "Instant profit & margin recalculation",
+          "Waste / unsellable percentage adjustment",
+          "Shareable URL with embedded inputs",
+          "Local persistence (autosave)",
+          "Cost per piece & profit per piece KPIs"
+        ],
+        "keywords": "bale calculator, used clothing profit calculator, margin calculator XAF, cost per piece, return on cost, second hand clothes business",
+        "creator": {
+          "@type": "Person",
+          "name": "Joy Sameza"
+        },
+        "potentialAction": {
+          "@type": "UseAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://Joy-sameza.github.io/bale-calculator/"
+          },
+          "expectsAcceptanceOf": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "XAF",
+            "category": "Free"
+          }
+        }
+      }
+    </script>
+    <script>
+      // Dynamically adjust canonical & og:url if served from another origin or path (e.g., custom domain)
+      (function () {
+        try {
+          var canonicalBase = "https://Joy-sameza.github.io/bale-calculator/";
+          var current = location.href.split("#")[0];
+          // Normalize trailing slash
+          if (!/\/$/.test(current) && /index\.html?$/.test(current)) {
+            current = current.replace(/index\.html?$/, "");
+          }
+          var link = document.getElementById("canonicalLink");
+          if (link && current.indexOf("localhost") === -1) {
+            link.href = current;
+            var og = document.querySelector('meta[property="og:url"]');
+            if (og) og.setAttribute("content", current);
+          } else if (link) {
+            link.href = canonicalBase;
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Bale Calculator (XAF)</h1>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: flex-end;
+          "
+        >
+          <nav
+            aria-label="Page navigation"
+            style="
+              font-size: 0.65rem;
+              letter-spacing: 0.6px;
+              display: flex;
+              gap: 10px;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="#calculator" style="color: #4fd1c5; text-decoration: none"
+              >Calculator</a
+            >
+            <a href="#about" style="color: #8aa0b4; text-decoration: none"
+              >About</a
+            >
+          </nav>
+          <div
+            class="footer"
+            style="
+              margin: 0;
+              font-size: 0.62rem;
+              letter-spacing: 0.55px;
+              justify-content: flex-end;
+            "
+          >
+            Values autosave · Shareable link copies to clipboard
+          </div>
+        </div>
+      </header>
+      <div class="grid" id="calculator" aria-label="Bale calculator">
+        <section class="card" aria-labelledby="inputs-heading">
+          <h2 id="inputs-heading">Inputs</h2>
+          <div class="inputs-stack">
+            <div class="row">
+              <div>
+                <label for="weight">Bale weight (kg)</label>
+                <input
+                  id="weight"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.1"
+                  value="100"
+                  autocomplete="off"
+                />
+              </div>
+              <div>
+                <label for="piecesPer100">Pieces per 100 kg</label>
+                <input
+                  id="piecesPer100"
+                  type="number"
+                  min="0"
+                  step="1"
+                  value="200"
+                />
+                <div class="inline-hint">
+                  Used to estimate total pieces per bale
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label for="buyRate">Buy rate (XAF / kg)</label>
+                <input
+                  id="buyRate"
+                  type="number"
+                  min="0"
+                  step="1"
+                  value="500"
+                />
+              </div>
+              <div>
+                <label for="shipping">Shipping (XAF / kg)</label>
+                <input
+                  id="shipping"
+                  type="number"
+                  min="0"
+                  step="1"
+                  value="100"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label for="sellPrice">Selling price (XAF / piece)</label>
+                <input
+                  id="sellPrice"
+                  type="number"
+                  min="0"
+                  step="1"
+                  value="1000"
+                />
+              </div>
+              <div>
+                <label for="wasteRate">Waste / unsellable (%)</label>
+                <input
+                  id="wasteRate"
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.5"
+                  value="0"
+                />
+                <div class="inline-hint">Percent of pieces you can't sell</div>
+              </div>
+            </div>
+            <div class="actions">
+              <button id="reset" type="button">Reset defaults</button>
+              <button id="share" type="button" class="primary">
+                Copy shareable link
+              </button>
+              <span id="copied" class="inline-hint" aria-live="polite"
+                >Link copied!</span
+              >
+            </div>
+          </div>
+          <div class="divider" role="presentation"></div>
+          <div class="sub-foot">
+            Adjust any value to update metrics instantly.
+          </div>
+        </section>
+        <section class="card" aria-labelledby="results-heading">
+          <h2 id="results-heading">Results</h2>
+          <div class="kpi-grid" role="group" aria-label="Calculated metrics">
+            <div class="kpi" aria-live="polite">
+              <div class="label">Pieces per bale</div>
+              <div id="pieces" class="value">—</div>
+            </div>
+            <div class="kpi" aria-live="polite">
+              <div class="label">Sellable pieces</div>
+              <div id="sellablePieces" class="value">—</div>
+            </div>
+            <div class="kpi" aria-live="polite">
+              <div class="label">Total cost</div>
+              <div id="totalCost" class="value">—</div>
+            </div>
+            <div class="kpi" aria-live="polite">
+              <div class="label">Total revenue</div>
+              <div id="totalRevenue" class="value">—</div>
+            </div>
+            <div class="kpi" aria-live="polite">
+              <div class="label">Total profit</div>
+              <div id="profit" class="value">—</div>
+            </div>
+            <div id="marginCard" class="kpi" aria-live="polite">
+              <div class="label">Profit margin</div>
+              <div id="margin" class="value">—</div>
+            </div>
+            <div id="rocCard" class="kpi" aria-live="polite">
+              <div class="label">Return on cost</div>
+              <div id="roc" class="value">—</div>
+            </div>
+            <div class="kpi" aria-live="polite">
+              <div class="label">Cost / piece</div>
+              <div id="cpp" class="value">—</div>
+            </div>
+            <div class="kpi" aria-live="polite">
+              <div class="label">Profit / piece</div>
+              <div id="ppp" class="value">—</div>
+            </div>
+          </div>
+          <div class="sub-foot">Margin & ROC use sellable pieces only.</div>
+        </section>
+      </div>
+      <section id="about" class="prose" aria-labelledby="about-heading">
+        <h2 id="about-heading">About This Bale Profit & Margin Calculator</h2>
+        <p>
+          This free <strong>XAF bale calculator</strong> helps wholesalers,
+          importers and retailers of second‑hand / used clothing (commonly
+          called bales) quickly estimate
+          <strong
+            >pieces per bale, cost per piece, total revenue, gross profit,
+            profit margin, return on cost (ROC) and profit per piece</strong
+          >. It is optimized for markets across Central and West Africa using
+          the Central African CFA Franc (XAF).
+        </p>
+        <div class="info-grid" aria-label="Key capabilities">
+          <div class="info-box">
+            <h3>Instant Metrics</h3>
+            <p>
+              Real-time updates: adjust weight, buy rate, shipping, selling
+              price or waste percentage and see every KPI update immediately.
+            </p>
+          </div>
+          <div class="info-box">
+            <h3>Waste Adjustment</h3>
+            <p>
+              Model unsellable or damaged items with a waste percentage to keep
+              profit expectations realistic.
+            </p>
+          </div>
+          <div class="info-box">
+            <h3>Share & Save</h3>
+            <p>
+              All values persist locally in your browser and you can generate a
+              shareable link with one click.
+            </p>
+          </div>
+          <div class="info-box">
+            <h3>Unit Economics</h3>
+            <p>
+              Understand cost per piece versus selling price so you can refine
+              pricing or sourcing decisions.
+            </p>
+          </div>
+        </div>
+        <h3>How Calculations Work</h3>
+        <p>
+          <strong>Pieces per bale</strong> = (Bale weight × Pieces per 100 kg) ÷
+          100.<br /><strong>Sellable pieces</strong> = Pieces per bale × (1 −
+          Waste%).<br /><strong>Total cost</strong> = Bale weight × (Buy rate +
+          Shipping).<br /><strong>Total revenue</strong> = Sellable pieces ×
+          Selling price per piece.<br /><strong>Profit</strong> = Total revenue
+          − Total cost.<br /><strong>Profit margin</strong> = Profit ÷ Total
+          revenue.<br /><strong>Return on cost (ROC)</strong> = Profit ÷ Total
+          cost.<br /><strong>Cost per piece</strong> = Total cost ÷ Sellable
+          pieces.<br /><strong>Profit per piece</strong> = Selling price − Cost
+          per piece.
+        </p>
+        <h3>Why This Matters</h3>
+        <p>
+          Margins in the used clothing trade can be tight and vary widely by
+          bale type and supplier quality. A structured calculator ensures you do
+          not underestimate shipping or waste, and helps you benchmark
+          suppliers, negotiate prices and test different selling price
+          strategies before committing capital.
+        </p>
+        <h3>Best Practices</h3>
+        <p>
+          Update your assumed waste percentage based on historical sorting
+          results. Track actual realized profit per bale to refine the inputs.
+          Use conservative selling prices when market demand is uncertain.
+          Re-run calculations whenever freight or currency changes materially.
+        </p>
+      </section>
+      <div class="footer">
+        Negative profit displays in red. All currency in XAF. Data stored
+        locally.
+      </div>
+    </div>
+    <script>
+      // Element references
+      const els = {
+        weight: document.getElementById("weight"),
+        piecesPer100: document.getElementById("piecesPer100"),
+        buyRate: document.getElementById("buyRate"),
+        shipping: document.getElementById("shipping"),
+        sellPrice: document.getElementById("sellPrice"),
+        wasteRate: document.getElementById("wasteRate"),
+        pieces: document.getElementById("pieces"),
+        sellablePieces: document.getElementById("sellablePieces"),
+        totalCost: document.getElementById("totalCost"),
+        totalRevenue: document.getElementById("totalRevenue"),
+        profit: document.getElementById("profit"),
+        margin: document.getElementById("margin"),
+        roc: document.getElementById("roc"),
+        cpp: document.getElementById("cpp"),
+        ppp: document.getElementById("ppp"),
+        marginCard: document.getElementById("marginCard"),
+        rocCard: document.getElementById("rocCard"),
+        reset: document.getElementById("reset"),
+        share: document.getElementById("share"),
+        copied: document.getElementById("copied"),
+      };
+
+      const currencyFmt = new Intl.NumberFormat("en-CM", {
+        style: "currency",
+        currency: "XAF",
+        maximumFractionDigits: 0,
+      });
+      const intFmt = new Intl.NumberFormat("en-CM", {
+        maximumFractionDigits: 0,
+      });
+      const pctFmt = new Intl.NumberFormat("en-CM", {
+        style: "percent",
+        maximumFractionDigits: 2,
+      });
+      const fields = [
+        "weight",
+        "piecesPer100",
+        "buyRate",
+        "shipping",
+        "sellPrice",
+        "wasteRate",
+      ];
+
+      function getVals() {
+        const v = {};
+        fields.forEach((k) => (v[k] = Number(els[k].value) || 0));
+        v.weight = Math.max(0, v.weight);
+        v.piecesPer100 = Math.max(0, v.piecesPer100);
+        v.buyRate = Math.max(0, v.buyRate);
+        v.shipping = Math.max(0, v.shipping);
+        v.sellPrice = Math.max(0, v.sellPrice);
+        v.wasteRate = Math.min(100, Math.max(0, v.wasteRate));
+        return v;
+      }
+
+      function compute() {
+        const v = getVals();
+        const pieces = (v.weight * v.piecesPer100) / 100;
+        const wasteFraction = v.wasteRate / 100;
+        const sellablePieces = Math.max(0, pieces * (1 - wasteFraction));
+        const totalCost = v.weight * (v.buyRate + v.shipping);
+        const totalRevenue = sellablePieces * v.sellPrice;
+        const profit = totalRevenue - totalCost;
+        const costPerPiece =
+          sellablePieces > 0 ? totalCost / sellablePieces : 0;
+        const profitPerPiece = v.sellPrice - costPerPiece;
+        const margin = totalRevenue > 0 ? profit / totalRevenue : 0;
+        const roc = totalCost > 0 ? profit / totalCost : 0;
+
+        // Update UI
+        els.pieces.textContent = intFmt.format(Math.floor(pieces));
+        els.sellablePieces.textContent = intFmt.format(
+          Math.floor(sellablePieces)
+        );
+        els.totalCost.textContent = currencyFmt.format(totalCost);
+        els.totalRevenue.textContent = currencyFmt.format(totalRevenue);
+        els.profit.textContent = currencyFmt.format(profit);
+        els.profit.parentElement.classList.toggle("bad", profit < 0);
+        els.profit.parentElement.classList.toggle("good", profit > 0);
+        els.margin.textContent = pctFmt.format(margin);
+        els.roc.textContent = pctFmt.format(roc);
+        els.cpp.textContent =
+          sellablePieces > 0 ? currencyFmt.format(costPerPiece) : "—";
+        els.ppp.textContent =
+          sellablePieces > 0 ? currencyFmt.format(profitPerPiece) : "—";
+        els.marginCard.classList.toggle("good", margin > 0);
+        els.marginCard.classList.toggle("bad", margin < 0);
+        els.rocCard.classList.toggle("good", roc > 0);
+        els.rocCard.classList.toggle("bad", roc < 0);
+
+        saveState();
+      }
+
+      function saveState() {
+        const state = {};
+        fields.forEach((k) => (state[k] = els[k].value));
+        try {
+          localStorage.setItem("baleCalc", JSON.stringify(state));
+        } catch {}
+      }
+
+      function loadState() {
+        const query = new URLSearchParams(location.search);
+        let loaded = false;
+        fields.forEach((k) => {
+          if (query.has(k)) {
+            els[k].value = query.get(k);
+            loaded = true;
+          }
+        });
+        if (!loaded) {
+          try {
+            const raw = localStorage.getItem("baleCalc");
+            if (raw) {
+              const state = JSON.parse(raw);
+              fields.forEach((k) => {
+                if (state[k] != null) els[k].value = state[k];
+              });
+            }
+          } catch {}
+        }
+      }
+
+      function attach() {
+        fields.forEach((k) =>
+          els[k].addEventListener("input", compute, { passive: true })
+        );
+        els.reset.addEventListener("click", () => {
+          els.weight.value = 100;
+          els.piecesPer100.value = 200;
+          els.buyRate.value = 500;
+          els.shipping.value = 100;
+          els.sellPrice.value = 1000;
+          els.wasteRate.value = 0;
+          compute();
+        });
+        els.share.addEventListener("click", async () => {
+          const sp = new URLSearchParams();
+          fields.forEach((k) => sp.set(k, els[k].value));
+          const url = `${location.origin}${location.pathname}?${sp.toString()}`;
+          try {
+            await navigator.clipboard.writeText(url);
+            els.copied.classList.add("show");
+            setTimeout(() => els.copied.classList.remove("show"), 1700);
+          } catch {
+            prompt("Copy this link:", url);
+          }
+        });
+      }
+
+      loadState();
+      attach();
+      compute();
+    </script>
+  </body>
+</html>
